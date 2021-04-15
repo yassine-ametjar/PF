@@ -4,6 +4,7 @@ sig
   type parametre 
   val creer: parametre -> individu
   val muter: individu -> individu
+  val croiser: individu -> individu -> individu
 end;;
 
 module MotGenetique  = 
@@ -28,6 +29,7 @@ module MotGenetique  =
                ^ muter (String.sub mot 1 ((String.length mot)-1) )
           else
             ""
+      let rec 
        
       
 end ;;
