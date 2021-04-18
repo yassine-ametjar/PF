@@ -190,14 +190,14 @@ let rec interaction () =
   let mot_mystere =  read_line () in
   if (alpha_num mot_mystere) = true then 
     let () = print_string "************Mode de transformation************ \n A quel niveau voulez-vous vous arrêter ? \n 1. Au Bout de max_iter interation  \n 2. Arrivé à un score n ( n compris entre 1 et le score parfait) \n" in
-    let reponse =  read_int () in
-    if reponse = 1 then 
+    let reponse =  read_line () in
+    if reponse = "1" then 
       begin
         print_string (deviner_max_iteration mot_mystere);
         print_string ("\n");
       end
     else
-    if reponse = 2 then 
+    if reponse = "2" then 
       begin
         print_string (deviner_score_parfait mot_mystere);
         print_string ("\n");
