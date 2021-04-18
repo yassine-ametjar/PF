@@ -38,12 +38,7 @@
 <code><span class="keyword">|</span></code></td>
 <td align="left" valign="top" >
 <code><span id="TYPEELTcondition.Max_iter"><span class="constructor">Max_iter</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
-<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
-<div class="info-desc">
-<p>module Evolution est un foncteur qui prend en parametre le module MotGenetique</p>
-</div>
-</div>
-</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+
 </tr></table>
 
 <div class="info ">
@@ -53,7 +48,11 @@
 </div>
 
 
-<pre><span id="MODULEEvolution"><span class="keyword">module</span> <a href="Projet.Evolution.html">Evolution</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre>
+<pre><span id="MODULEEvolution"><span class="keyword">module</span> <a href="Projet.Evolution.html">Evolution</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre><div class="info">
+<p>module Evolution est un foncteur qui prend en parametre le module MotGenetique</p>
+
+</div>
+
 <pre><span id="MODULEMystere"><span class="keyword">module</span> <a href="Projet.Mystere.html">Mystere</a></span>: <code class="type"><a href="Projet.Evolution.html">Evolution</a></code><code class="code">(</code><code class="type"><a href="Projet.MotGenetique.html">MotGenetique</a></code><code class="code">)</code></pre><div class="info">
 <p>Ce module est l'application du foncteur Evolution</p>
 
@@ -85,7 +84,7 @@
 
 <pre><span id="VALinteraction"><span class="keyword">val</span> interaction</span> : <code class="type">unit -> unit</code></pre><div class="info ">
 <div class="info-desc">
-<p>Cette fonction intéragit avec l'utilateur</p>
+<p>Cette fonction intéragit avec l'utilisateur</p>
 </div>
 </div>
 </body></html>

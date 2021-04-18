@@ -21,7 +21,12 @@
 </div>
 <h1>Functor <a href="type_Projet.Evolution.html">Projet.Evolution</a></h1>
 
-<pre><span id="MODULEEvolution"><span class="keyword">module</span> Evolution</span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre><table border="0" cellpadding="3" width="100%">
+<pre><span id="MODULEEvolution"><span class="keyword">module</span> Evolution</span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre><div class="info module top">
+<div class="info-desc">
+<p>module Evolution est un foncteur qui prend en parametre le module MotGenetique</p>
+</div>
+</div>
+<table border="0" cellpadding="3" width="100%">
 <tr>
 <td align="left" valign="top" width="1%%"><b>Parameters: </b></td>
 <td>
@@ -41,8 +46,6 @@
 <div class="info ">
 <div class="info-desc">
 <p>le type population est sous forme d'une liste d'individu</p>
-
-<p>Le type evaluateur prend un individu et nous rend un entier</p>
 </div>
 </div>
 
@@ -50,12 +53,17 @@
 <pre><span id="TYPEevaluateur"><span class="keyword">type</span> <code class="type"></code>evaluateur</span> = <code class="type"><a href="Projet.MotGenetique.html#TYPEindividu">Projet.MotGenetique.individu</a> -> int</code> </pre>
 <div class="info ">
 <div class="info-desc">
+<p>Le type evaluateur prend un individu et nous rend un entier</p>
+</div>
+</div>
+
+
+<pre><span id="VALreproduction"><span class="keyword">val</span> reproduction</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
 <p>Cette fonction prend en parametre une population et un entier n  pour ensuite faire des croisement entre les population n fois et ensuite les rajouter à la population</p>
 </div>
 </div>
 
-
-<pre><span id="VALreproduction"><span class="keyword">val</span> reproduction</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
 <pre><span id="VALmutation"><span class="keyword">val</span> mutation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
 <div class="info-desc">
 <p>Cette fonction applique la mutation sur une population</p>
