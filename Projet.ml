@@ -209,7 +209,7 @@ let rec interaction () =
       end
   else
     begin
-      print_string "Veuillez ne pas saisir des caracteres autres que des lettres  \n ";
+      print_string "Veuillez ne pas saisir des caracteres autres que des lettres miniscules  \n ";
       interaction ();
     end
 ;; 
