@@ -40,10 +40,15 @@ struct
         ""
 end
 ;;
+type condition = 
+    Score_parfait of int 
+  |Max_iter of int 
+;;
 module Evolution(MotGenetique : GENOME)   =
 struct
   type population = MotGenetique.individu list
-  type evaluateur = MotGenetique.individu -> int
+  type evaluateur = MotGenetique.individu -> int 
+
   let rec reproduction : population -> int -> population =
     fun l n ->
       if n = 0 then
@@ -78,21 +83,30 @@ struct
       let repro = reproduction solution (n-m) in
       mutation repro
         
-  let evolution : evaluateur -> MotGenetique.parametre -> int -> int ->int -> int  -> population =
-    fun eval parametre nb_individus nb_meilleurs score_parfait max_iter ->
+  let evolution : evaluateur -> MotGenetique.parametre -> int -> int ->condition-> population =
+    fun eval parametre nb_individus nb_meilleurs condition  ->
       let rec initialisation = fun nb_individus parametre   ->
         if nb_individus = 0 then []
         else MotGenetique.creer parametre :: initialisation (nb_individus-1) parametre in
-      let pop_initiale = initialisation nb_individus parametre in
-      let rec aux =  fun eval nb_individus nb_meilleurs  score_parfait liste ->
-        let nouvelle_pop = generation eval nb_individus nb_meilleurs liste in
-        if eval( List.hd ( selection eval nouvelle_pop 1 )) = score_parfait  then nouvelle_pop
-        else aux eval nb_individus nb_meilleurs score_parfait nouvelle_pop
-      in aux eval nb_individus nb_meilleurs score_parfait pop_initiale
+      let pop_initiale = initialisation nb_individus parametre in 
+      match condition with 
+      | Score_parfait  score ->
+          let rec aux =  fun eval nb_individus nb_meilleurs condition liste -> 
+            let nouvelle_pop = generation eval nb_individus nb_meilleurs liste in
+            if eval( List.hd ( selection eval nouvelle_pop 1 )) = score  then nouvelle_pop
+            else aux eval nb_individus nb_meilleurs score nouvelle_pop
+          in aux eval nb_individus nb_meilleurs score pop_initiale 
+      | Max_iter max ->
+          let rec aux =  fun eval nb_individus nb_meilleurs  max  liste ->
+            let nouvelle_pop = generation eval nb_individus nb_meilleurs liste in
+            if max = 0 then nouvelle_pop
+            else aux eval nb_individus nb_meilleurs (max-1) nouvelle_pop
+          in aux eval nb_individus nb_meilleurs max pop_initiale
 
 end
 ;;
-module Mystere = Evolution (MotGenetique) ;;
+module Mystere = Evolution (MotGenetique) 
+;;
 let comparer : string -> string -> int =
   fun mot1 mot2 ->
     let rec aux  = fun mot1 mot2 nb_carac_identique ->
@@ -105,18 +119,62 @@ let comparer : string -> string -> int =
         aux (String.sub mot1 1 (taille-1)) (String.sub mot2 1 (taille-1)) nb_carac_identique
     in aux mot1 mot2 0
 ;;
-let deviner : string -> string =
+let deviner_score_parfait : string -> string =
+  fun mot_mystere -> 
+    let evaluateur = comparer mot_mystere in
+    let t = String.length mot_mystere in
+    let score_parfait = Score_parfait t in
+    let a = Mystere.evolution evaluateur t t (t/2) score_parfait  in
+    (List.hd (Mystere.selection evaluateur a 1))
+;;
+let deviner_max_iteration : string -> string =
   fun mot_mystere ->
     let evaluateur = comparer mot_mystere in
     let t = String.length mot_mystere in
-    let a = Mystere.evolution evaluateur t t (t/2) t 1000 in
+    let max_iteration = Max_iter 100 in
+    let a = Mystere.evolution evaluateur t t (t/2) max_iteration in
     (List.hd (Mystere.selection evaluateur a 1))
 ;;
+let rec alpha_num = 
+  fun mot ->
+    let taille = String.length mot in
+    if taille = 0 then true
+    else
+      let fst_carac =  (String.get mot 0 ) in
+      let equi = Char.code(fst_carac) in
+      if (equi < 123) && (equi > 96) then 
+        alpha_num (String.sub mot 1 (taille-1))
+      else
+        false
+;;
+  let rec interaction () =
+    let () = print_string "Veuillez entrer un mot : " in
+    let mot_mystere =  read_line () in
+      if (alpha_num mot_mystere) = true then 
+ 
+        let () = print_string "A quel niveau voulez vous arrêter ? \n 1. Au Bout de Max iteration \n 2. Arrivé au score parfait \n" in
+        let reponse =  read_int () in
+        if reponse = 1 then 
+          begin
+            print_string (deviner_max_iteration mot_mystere);
+            print_string ("\n");
+          end
+        else
+          if reponse = 2 then 
+              begin
+                print_string (deviner_score_parfait mot_mystere);
+                print_string ("\n");
+              end
+          else
+              begin
+                print_string "Vous ne pouvez choisir qu'entre 1 et 2  \n ";
+                 
+              end
+      else
+        begin
+          print_string "Veuillez ne pas saisir des caracteres autres que des lettres  \n ";
+          interaction ();
+        end
+  ;; 
 
-  let interaction =
-    let () = print_string "Entrez un mot : " in
-    let mot_mystere =   String.lowercase_ascii (read_line ())in
-    print_string (deviner mot_mystere);
-    print_string "\n"
-  ;;
-  
+interaction ();;
