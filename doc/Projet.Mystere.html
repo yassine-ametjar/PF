@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Projet.Evolution.html">
+<link rel="Up" href="Projet.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Projet" rel="Chapter" href="Projet.html"><title>Projet.Mystere</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Projet.Evolution.html" title="Projet.Evolution">Previous</a>
+&nbsp;<a class="up" href="Projet.html" title="Projet">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Projet.Mystere.html">Projet.Mystere</a></h1>
+
+<pre><span id="MODULEMystere"><span class="keyword">module</span> Mystere</span>: <code class="type"><a href="Projet.Evolution.html">Evolution</a></code><code class="code">(</code><code class="type"><a href="Projet.MotGenetique.html">MotGenetique</a></code><code class="code">)</code></pre><div class="info module top">
+<div class="info-desc">
+<p>Ce module est l'application du foncteur Evolution</p>
+</div>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEpopulation"><span class="keyword">type</span> <code class="type"></code>population</span> = <code class="type"><a href="Projet.MotGenetique.html#TYPEindividu">Projet.MotGenetique.individu</a> list</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>le type population est sous forme d'une liste d'individu</p>
+
+<p>Le type evaluateur prend un individu et nous rend un entier</p>
+</div>
+</div>
+
+
+<pre><span id="TYPEevaluateur"><span class="keyword">type</span> <code class="type"></code>evaluateur</span> = <code class="type"><a href="Projet.MotGenetique.html#TYPEindividu">Projet.MotGenetique.individu</a> -> int</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>Cette fonction prend en parametre une population et un entier n  pour ensuite faire des croisement entre les population n fois et ensuite les rajouter à la population</p>
+</div>
+</div>
+
+
+<pre><span id="VALreproduction"><span class="keyword">val</span> reproduction</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
+<pre><span id="VALmutation"><span class="keyword">val</span> mutation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction applique la mutation sur une population</p>
+</div>
+</div>
+
+<pre><span id="VALselection"><span class="keyword">val</span> selection</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction selection renvoie une population qui découle la selectionne  des meilleurs individus d'une population initial</p>
+</div>
+</div>
+
+<pre><span id="VALgeneration"><span class="keyword">val</span> generation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       int -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction fait la selection sur une population ensuite croise les meilleures individus pour donner une population qu'il va muter</p>
+</div>
+</div>
+
+<pre><span id="VALevolution"><span class="keyword">val</span> evolution</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.MotGenetique.html#TYPEparametre">Projet.MotGenetique.parametre</a> -><br>       int -> int -> <a href="Projet.html#TYPEcondition">Projet.condition</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction crée une population initial et là faire évoluer jusqu'a satisfaire la condition de départ</p>
+</div>
+</div>
+</body></html>

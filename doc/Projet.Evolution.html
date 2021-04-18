@@ -38,13 +38,45 @@
 <hr width="100%">
 
 <pre><span id="TYPEpopulation"><span class="keyword">type</span> <code class="type"></code>population</span> = <code class="type"><a href="Projet.MotGenetique.html#TYPEindividu">Projet.MotGenetique.individu</a> list</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>le type population est sous forme d'une liste d'individu</p>
+
+<p>Le type evaluateur prend un individu et nous rend un entier</p>
+</div>
+</div>
 
 
 <pre><span id="TYPEevaluateur"><span class="keyword">type</span> <code class="type"></code>evaluateur</span> = <code class="type"><a href="Projet.MotGenetique.html#TYPEindividu">Projet.MotGenetique.individu</a> -> int</code> </pre>
+<div class="info ">
+<div class="info-desc">
+<p>Cette fonction prend en parametre une population et un entier n  pour ensuite faire des croisement entre les population n fois et ensuite les rajouter à la population</p>
+</div>
+</div>
 
 
 <pre><span id="VALreproduction"><span class="keyword">val</span> reproduction</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
-<pre><span id="VALmutation"><span class="keyword">val</span> mutation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
-<pre><span id="VALselection"><span class="keyword">val</span> selection</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
-<pre><span id="VALgeneration"><span class="keyword">val</span> generation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       int -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre>
-<pre><span id="VALevolution"><span class="keyword">val</span> evolution</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.MotGenetique.html#TYPEparametre">Projet.MotGenetique.parametre</a> -><br>       int -> int -> <a href="Projet.html#TYPEcondition">Projet.condition</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre></body></html>
+<pre><span id="VALmutation"><span class="keyword">val</span> mutation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction applique la mutation sur une population</p>
+</div>
+</div>
+
+<pre><span id="VALselection"><span class="keyword">val</span> selection</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction selection renvoie une population qui découle la selectionne  des meilleurs individus d'une population initial</p>
+</div>
+</div>
+
+<pre><span id="VALgeneration"><span class="keyword">val</span> generation</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       int -> int -> <a href="Projet.Evolution.html#TYPEpopulation">population</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction fait la selection sur une population ensuite croise les meilleures individus pour donner une population qu'il va muter</p>
+</div>
+</div>
+
+<pre><span id="VALevolution"><span class="keyword">val</span> evolution</span> : <code class="type"><a href="Projet.Evolution.html#TYPEevaluateur">evaluateur</a> -><br>       <a href="Projet.MotGenetique.html#TYPEparametre">Projet.MotGenetique.parametre</a> -><br>       int -> int -> <a href="Projet.html#TYPEcondition">Projet.condition</a> -> <a href="Projet.Evolution.html#TYPEpopulation">population</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction crée une population initial et là faire évoluer jusqu'a satisfaire la condition de départ</p>
+</div>
+</div>
+</body></html>

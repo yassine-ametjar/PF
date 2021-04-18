@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="Start" href="index.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Projet" rel="Chapter" href="Projet.html"><title>Projet</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Projet.html">Projet</a></h1>
+
+<pre><span id="MODULEProjet"><span class="keyword">module</span> Projet</span>: <code class="code">sig</code> <a href="Projet.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="MODULETYPEGENOME"><span class="keyword">module type</span> <a href="Projet.GENOME.html">GENOME</a></span> = <code class="code">sig</code> <a href="Projet.GENOME.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMotGenetique"><span class="keyword">module</span> <a href="Projet.MotGenetique.html">MotGenetique</a></span>: <code class="code">sig</code> <a href="Projet.MotGenetique.html">..</a> <code class="code">end</code></pre><div class="info">
+<p>Un module qui implante le type module GENOME</p>
+
+</div>
+
+<pre><code><span id="TYPEcondition"><span class="keyword">type</span> <code class="type"></code>condition</span> = </code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcondition.Score_parfait"><span class="constructor">Score_parfait</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code><span class="keyword">|</span></code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTcondition.Max_iter"><span class="constructor">Max_iter</span></span> <span class="keyword">of</span> <code class="type">int</code></code></td>
+<td class="typefieldcomment" align="left" valign="top" ><code>(*</code></td><td class="typefieldcomment" align="left" valign="top" ><div class="info ">
+<div class="info-desc">
+<p>module Evolution est un foncteur qui prend en parametre le module MotGenetique</p>
+</div>
+</div>
+</td><td class="typefieldcomment" align="left" valign="bottom" ><code>*)</code></td>
+</tr></table>
+
+<div class="info ">
+<div class="info-desc">
+<p>type condition prend deux constructeurs</p>
+</div>
+</div>
+
+
+<pre><span id="MODULEEvolution"><span class="keyword">module</span> <a href="Projet.Evolution.html">Evolution</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre>
+<pre><span id="MODULEMystere"><span class="keyword">module</span> <a href="Projet.Mystere.html">Mystere</a></span>: <code class="type"><a href="Projet.Evolution.html">Evolution</a></code><code class="code">(</code><code class="type"><a href="Projet.MotGenetique.html">MotGenetique</a></code><code class="code">)</code></pre><div class="info">
+<p>Ce module est l'application du foncteur Evolution</p>
+
+</div>
+
+<pre><span id="VALcomparer"><span class="keyword">val</span> comparer</span> : <code class="type">string -> string -> int</code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction compare deux chaine de caractére et ensuite renvoie le nombre de caractére identique à la même position</p>
+</div>
+</div>
+
+<pre><span id="VALdeviner_score_parfait"><span class="keyword">val</span> deviner_score_parfait</span> : <code class="type">string -> <a href="Projet.MotGenetique.html#TYPEindividu">MotGenetique.individu</a></code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction devine l'individu via le score donner par l'utilisateur</p>
+</div>
+</div>
+
+<pre><span id="VALdeviner_max_iteration"><span class="keyword">val</span> deviner_max_iteration</span> : <code class="type">string -> string</code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction devine le meilleur individu au bout de Max-itération</p>
+</div>
+</div>
+
+<pre><span id="VALalpha_num"><span class="keyword">val</span> alpha_num</span> : <code class="type">string -> bool</code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction détecte s'il y a des caractéres autre que des lettres miniscules</p>
+</div>
+</div>
+
+<pre><span id="VALinteraction"><span class="keyword">val</span> interaction</span> : <code class="type">unit -> unit</code></pre><div class="info ">
+<div class="info-desc">
+<p>Cette fonction intéragit avec l'utilateur</p>
+</div>
+</div>
+</body></html>
