@@ -10,17 +10,17 @@
 <link title="Index of values" rel=Appendix href="index_values.html">
 <link title="Index of modules" rel=Appendix href="index_modules.html">
 <link title="Index of module types" rel=Appendix href="index_module_types.html">
-<link title="Projet" rel="Chapter" href="Projet.html"><title>Projet</title>
+<link title="Mot" rel="Chapter" href="Mot.html"><title>Mot</title>
 </head>
 <body>
 <div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
 &nbsp;</div>
-<h1>Module <a href="type_Projet.html">Projet</a></h1>
+<h1>Module <a href="type_Mot.html">Mot</a></h1>
 
-<pre><span id="MODULEProjet"><span class="keyword">module</span> Projet</span>: <code class="code">sig</code> <a href="Projet.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="MODULEMot"><span class="keyword">module</span> Mot</span>: <code class="code">sig</code> <a href="Mot.html">..</a> <code class="code">end</code></pre><hr width="100%">
 
-<pre><span id="MODULETYPEGENOME"><span class="keyword">module type</span> <a href="Projet.GENOME.html">GENOME</a></span> = <code class="code">sig</code> <a href="Projet.GENOME.html">..</a> <code class="code">end</code></pre>
-<pre><span id="MODULEMotGenetique"><span class="keyword">module</span> <a href="Projet.MotGenetique.html">MotGenetique</a></span>: <code class="code">sig</code> <a href="Projet.MotGenetique.html">..</a> <code class="code">end</code></pre><div class="info">
+<pre><span id="MODULETYPEGENOME"><span class="keyword">module type</span> <a href="Mot.GENOME.html">GENOME</a></span> = <code class="code">sig</code> <a href="Mot.GENOME.html">..</a> <code class="code">end</code></pre>
+<pre><span id="MODULEMotGenetique"><span class="keyword">module</span> <a href="Mot.MotGenetique.html">MotGenetique</a></span>: <code class="code">sig</code> <a href="Mot.MotGenetique.html">..</a> <code class="code">end</code></pre><div class="info">
 <p>Un module qui implante le type module GENOME</p>
 
 </div>
@@ -48,12 +48,12 @@
 </div>
 
 
-<pre><span id="MODULEEvolution"><span class="keyword">module</span> <a href="Projet.Evolution.html">Evolution</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Projet.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Projet.Evolution.html">..</a> <code class="code">end</code></div></pre><div class="info">
+<pre><span id="MODULEEvolution"><span class="keyword">module</span> <a href="Mot.Evolution.html">Evolution</a></span>: <div class="sig_block"><code class="code">functor (</code><code class="code">MotGenetique</code><code class="code"> : </code><code class="type"><a href="Mot.GENOME.html">GENOME</a></code><code class="code">) -&gt; </code><code class="code">sig</code> <a href="Mot.Evolution.html">..</a> <code class="code">end</code></div></pre><div class="info">
 <p>module Evolution est un foncteur qui prend en parametre le module MotGenetique</p>
 
 </div>
 
-<pre><span id="MODULEMystere"><span class="keyword">module</span> <a href="Projet.Mystere.html">Mystere</a></span>: <code class="type"><a href="Projet.Evolution.html">Evolution</a></code><code class="code">(</code><code class="type"><a href="Projet.MotGenetique.html">MotGenetique</a></code><code class="code">)</code></pre><div class="info">
+<pre><span id="MODULEMystere"><span class="keyword">module</span> <a href="Mot.Mystere.html">Mystere</a></span>: <code class="type"><a href="Mot.Evolution.html">Evolution</a></code><code class="code">(</code><code class="type"><a href="Mot.MotGenetique.html">MotGenetique</a></code><code class="code">)</code></pre><div class="info">
 <p>Ce module est l'application du foncteur Evolution</p>
 
 </div>
@@ -64,7 +64,7 @@
 </div>
 </div>
 
-<pre><span id="VALdeviner_score_parfait"><span class="keyword">val</span> deviner_score_parfait</span> : <code class="type">string -> <a href="Projet.MotGenetique.html#TYPEindividu">MotGenetique.individu</a></code></pre><div class="info ">
+<pre><span id="VALdeviner_score_parfait"><span class="keyword">val</span> deviner_score_parfait</span> : <code class="type">string -> <a href="Mot.MotGenetique.html#TYPEindividu">MotGenetique.individu</a></code></pre><div class="info ">
 <div class="info-desc">
 <p>Cette fonction devine l'individu via le score donner par l'utilisateur</p>
 </div>
